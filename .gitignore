@@ -1,0 +1,29 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Local file storage
+/Local/
+/src/Local/
+/Keys/
+/src/Docker/compose.yaml
+
+# .NET build output
+**/bin/
+**/obj/
+**/out/
+
+# IDE and user-specific files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp

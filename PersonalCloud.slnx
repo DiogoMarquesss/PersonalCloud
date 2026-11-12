@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PersonalCloud.Common/PersonalCloud.Common.csproj" />
+    <Project Path="src/PersonalCloud.Files.Api/PersonalCloud.Files.Api.csproj" />
+    <Project Path="src/PersonalCloud.Files.Data/PersonalCloud.Files.Data.csproj" />
+    <Project Path="src/PersonalCloud.Users.Api/PersonalCloud.Users.Api.csproj" />
+    <Project Path="src/PersonalCloud.Users.Data/PersonalCloud.Users.Data.csproj" />
+  </Folder>
+</Solution>

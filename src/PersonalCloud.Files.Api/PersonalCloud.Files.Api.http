@@ -1,0 +1,6 @@
+@PersonalCloud.Files.Api_HostAddress = http://localhost:5225
+
+GET {{PersonalCloud.Files.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
