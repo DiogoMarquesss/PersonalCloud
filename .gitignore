@@ -9,6 +9,7 @@
 /src/Local/
 /Keys/
 /src/Docker/compose.yaml
+/PersonalCloud.slnx
 
 # .NET build output
 **/bin/
