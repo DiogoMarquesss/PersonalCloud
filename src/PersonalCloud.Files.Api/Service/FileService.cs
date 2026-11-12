@@ -59,4 +59,28 @@ public class FileService : IFileService
 
         return (stream, file);
     }
+
+    public async Task<bool> DeleteFile (string userId,Guid fileId)
+    {
+        var file = await _context.Files
+            .FirstOrDefaultAsync(f =>
+                f.Id == fileId &&
+                f.UserId == userId);
+
+        if (file == null)
+            return false;
+        
+        var isDeleted = _localFileStorage.DeleteFileFromDisk(file.StoragePath);
+
+        if (!isDeleted)
+        {
+            return false;
+        }
+
+        _context.Files.Remove(file);
+        
+        await _context.SaveChangesAsync();
+
+        return true;
+    }
 }
