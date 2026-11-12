@@ -54,4 +54,22 @@ public class FilesController : ControllerBase
 
         return File(result.Stream, contentType);
     }
+
+    [HttpDelete("{id}/content")]
+    public async Task<IActionResult> DeleteFiles (Guid id)
+    {
+        var userId = User.GetUserId();
+        
+        if (string.IsNullOrEmpty(userId))
+            return Unauthorized();
+
+        var result = await _fileService.DeleteFile(userId,id);
+
+        if (!result)
+        {
+            throw new IOException("Failed to delete file from disk.");
+        }
+
+        return Ok("File remove with sucess");
+    }
 }

@@ -42,4 +42,31 @@ public class LocalFileStorageService : ILocalFileStorage
 
         return File.OpenRead(filePath);
     }
+
+    public bool DeleteFileFromDisk(string relativePath)
+    {
+        var basePath = Environment.GetEnvironmentVariable("STORAGE_BASE_PATH");
+
+        if (string.IsNullOrWhiteSpace(basePath))
+            throw new InvalidOperationException("Storage path not configured.");
+
+        var filePath = Path.Combine(basePath, relativePath);
+
+        if (!File.Exists(filePath))
+            return false;
+
+        try
+        {
+            File.Delete(filePath);
+            return true;
+        }
+        catch (IOException)
+        {
+            return false;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return false;
+        }
+    }
 }
